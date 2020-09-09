@@ -15,9 +15,9 @@ Ekstracurriculars Data
 	</div>
 	<div class="card-block">
 		<div class="dt-responsive table-responsive">
-			<a href="/ekstracurriculars/create" class="btn btn-success">Create</a>
+			<a href="/ekstracurriculars/create" class="btn btn-success"><i class="ion-plus-circled"></i></a>
 			<table id="dom-table" class="table table-striped table-bordered nowrap">
-				<thead>
+				<thead>  
 					<tr>
 						<th>Name</th>
 						<th>Action</th>
@@ -27,8 +27,10 @@ Ekstracurriculars Data
 					@foreach($data as $input)
 					<tr>
 						<td>{{$input->ekstracurriculars_name}}</td>
-						<td><a href="/ekstracurriculars/{{$input->ekstracurriculars_id}}/delete" class="btn btn-danger">Delete</a></td>
-						<td><a href="/ekstracurriculars/{{$input->ekstracurriculars_id}}/detail" class="btn btn-primary">Detail</a></td>
+						<td> 
+							<a href="/ekstracurriculars/{{$input->ekstracurriculars_id}}/delete" class="btn btn-danger"><i class="ion-trash-a"></i></a>
+							<a href="/ekstracurriculars/{{$input->ekstracurriculars_id}}/detail" class="btn btn-primary"><i class="ion-eye"></i></a>	
+						</td>
 					</tr>
 					@endforeach
 				</tbody>

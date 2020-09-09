@@ -14,7 +14,7 @@ class TeachersController extends Controller
      */
     public function index()
     {
-        $data = \App\Role::join('users','users.role_id','=','roles.role_id')
+        $data = \App\User::join('roles','users.role_id','=','roles.role_id')
         ->where('roles.role_name','=','teacher')
         ->get();
        

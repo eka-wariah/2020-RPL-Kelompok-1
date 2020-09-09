@@ -15,43 +15,42 @@ Teachers Data
 	</div>
 	<div class="card-block">
 		<div class="dt-responsive table-responsive">
-				<form action="" method="post" >
-					@csrf
-			<table id="dom-table" class="table table-striped table-bordered nowrap">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Ekstracurriculars</th>
-						<th>Teachers Name</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-				
+			<form action="" method="post" >
+				@csrf
+				<table id="dom-table" class="table table-striped table-bordered nowrap">
+					<thead>
+						<tr>
+							<th>Pilih</th>
+							<th>Ekstracurriculars</th>
+							<th>Teachers Name</th>
+							<th><center>Action</center></th>
+						</tr>
+					</thead>
+					<tbody>
 						
-					
-					@foreach($choose as $no => $input)
-					<tr>
-						<td><div class="checkbox-fade fade-in-primary">
-														<label>
-															<input name="{{$input->ekstracurriculars_id}}}}" type="checkbox" value="{{$input->	ekstracurriculars_id}}">
-															<span class="cr">
-																<i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-															</span>
-															<span></span>
-														</label>
-													</div></td>
-													<td colspan="" rowspan="" headers="">{{$input->ekstracurriculars_name}}</td>
-						<td>{{$input->teachers_name}}</td>
-						<td><a href="/choose/{{$input->id}}/eksracurricular" class="btn btn-success">choose</a></td>
-						<td><a href="/choose/{{$input->id}}/detail" class="btn btn-primary">Detail</a></td>
-					</tr>
-					@endforeach
-					
-					
-				</tbody>
-			</table>
-			<input type="submit" value="submit" name="">
+						
+						
+						@foreach($choose as $no => $input)
+						<tr>
+							<td><div class="checkbox-fade fade-in-primary">
+								<label>
+									<input name="{{$input->ekstracurriculars_id}}}}" type="checkbox"  value="{{$input->	ekstracurriculars_id}}">
+									<span class="cr">
+										<i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+									</span>
+									<span></span>
+								</label>
+							</div></td>
+							<td colspan="" rowspan="" headers="">{{$input->ekstracurriculars_name}}</td>
+							<td>{{$input->name}}</td>
+							<td><center><a href="/choose/{{$input->id}}/detail" class="btn btn-primary"><i class="ion-eye"></i></a></center></td>
+						</tr>
+						@endforeach
+						
+						
+					</tbody>
+				</table>
+				<input type="submit" class="btn btn-success" value="submit" name="">
 			</form>
 		</div>
 	</div>

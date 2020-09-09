@@ -26,7 +26,7 @@ class EkstracurricularsController extends Controller
      */
     public function create()
     {
-        $teacher = \App\Role::join('users','users.role_id','=','roles.role_id')
+        $teacher = \App\User::join('roles','users.role_id','=','roles.role_id')
         ->where('roles.role_name','=','teacher')
         ->get();
         return view('ekstracurriculars.create_ekstracurricular',compact('teacher'));
@@ -67,8 +67,10 @@ class EkstracurricularsController extends Controller
         ->where('ekstracurriculars.teacher_id','=',$teacher_id)
         ->where('ekstracurriculars.ekstracurriculars_name','=',$nama)
         ->first();
+        $member=\App\Member::join('users','users.id','=','members.user_id')
+        ->where('ekstrcurriculars_id','=',$id)->get();
         // dd($teacher);
-         return view('ekstracurriculars.detail_ekstracurricular',['name'=> $ekstacurricular,'teacher'=>$teacher]);
+         return view('ekstracurriculars.detail_ekstracurricular',['name'=> $ekstacurricular,'teacher'=>$teacher,'member'=>$member]);
     }
 
     /**

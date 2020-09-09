@@ -15,7 +15,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data = \App\Role::join('users','users.role_id','=','roles.role_id')
+        $data = \App\User::join('roles','users.role_id','=','roles.role_id')
         ->where('roles.role_name','=','student')
         ->get();
         return view('students.index',compact('data'));
@@ -28,7 +28,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+         $student = \App\User::whereId(auth()->user()->id)->first();
+        return view('students.edit_student',compact('student'));
     }
 
     /**
@@ -39,7 +40,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -55,9 +56,10 @@ class StudentsController extends Controller
         ->where('roles.role_name','=','student')
         ->where('users.id','=',$id)
         ->first();
+
        
 // dd($student);
-        return view('students.detail_student',['student'=>$student]);
+        return view('students.detail_student',['student'=>$student,'view'=>$id]);
     }
     }
 
@@ -79,9 +81,13 @@ class StudentsController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request,$id)
     {
-        //
+        $user = User::whereId($id)->first();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->update();
+        return redirect('/students/'.$id.'/detail');
     }
 
     /**

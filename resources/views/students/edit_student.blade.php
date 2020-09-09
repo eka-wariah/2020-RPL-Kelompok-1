@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('nameContent')
-Ekstracurriculars Data
+Students Edit
 @endsection
 @section('content')
 		<div class="col-sm-12">
@@ -20,7 +20,7 @@ Ekstracurriculars Data
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control @error('name') is-invalid @enderror" name="ekstracurriculars_name" id="name" placeholder="Text Input Name">
+								<input type="text" class="form-control @error('name') is-invalid @enderror" value="{{$student->name}}" name="name" id="name" placeholder="Text Input Name">
 								@error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -30,20 +30,14 @@ Ekstracurriculars Data
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Teacher Name</label>
+							<label class="col-sm-2 col-form-label">Email</label>
 							<div class="col-sm-10">
-								<select class="form-control" name="teacher">
-									@foreach($teacher as $teach)
-									<option value="{{$teach->id}}">{{$teach->name}}</option>
-									@endforeach
-								</select>
-								<span class="messages"></span>
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Description</label>
-							<div class="col-sm-10">
-								<textarea name="description" class="form-control"></textarea>
+								<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{$student->email}}"" name="email" placeholder="Enter valid e-mail address">
+								@error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 								<span class="messages"></span>
 							</div>
 						</div>
@@ -51,7 +45,6 @@ Ekstracurriculars Data
 							<label class="col-sm-2"></label>
 							<div class="col-sm-10">
 								<button type="submit" class="btn btn-primary m-b-0">Submit</button>
-								<a href="/ekstracurriculars" class="btn btn-danger">Back</a>
 							</div>
 						</div>
 					</form>

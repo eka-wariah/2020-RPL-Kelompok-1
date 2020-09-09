@@ -28,13 +28,17 @@ Students Data
 					<tr>
 						<td>{{$input->name}}</td>
 						<td>{{$input->email}}</td>
-						<td><a href="/students/{{$input->id}}/delete" class="btn btn-danger">Delete</a></td>
-						<td><a href="/students/{{$input->id}}/detail" class="btn btn-primary">Detail</a></td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
+						<td>
+							@if(auth()->user()->role_id==1)
+							<a href="/students/{{$input->id}}/delete" class="btn btn-danger"><i class="ion-trash-a"></i></a>
+							@endif
+							<a href="/students/{{$input->id}}/detail" class="btn btn-primary"><i class="ion-eye"></i></a>	
+						</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
-@endsection
+	@endsection

@@ -16,8 +16,13 @@ class ChooseController extends Controller
      */
     public function index()
     {
-        $choose=Ekstracurricular::join('users','users.id','=','ekstracurriculars.teacher_id')->get();
+        $data = Member::whereUser_id(auth()->user()->id)->count();
+            if ($data>2) {
+                return redirect('/dashboard');
+            }else{
+                $choose=Ekstracurricular::join('users','users.id','=','ekstracurriculars.teacher_id')->get();
         return view('choose.index',compact('choose'));
+            }
     }
 
     /**
@@ -39,10 +44,15 @@ class ChooseController extends Controller
     public function store(Request $request)
     {
         foreach ($request->except(['_token']) as$no => $key ) {
-            $member = new Member();
-            $member->user_id = Auth()->user()->id;
-            $member->ekstrcurriculars_id = $key;
-            $member->save(); 
+            $data=Member::whereUser_id(auth()->user()->id)->count();
+            if ($data>2) {
+                return redirect('/dashboard');
+            }else{
+                $member = new Member();
+                $member->user_id = Auth()->user()->id;
+                $member->ekstrcurriculars_id = $key;
+                $member->save();  
+            }
         }
         return redirect('/home');
     }
@@ -87,8 +97,10 @@ class ChooseController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function out($id)
     {
-        //
+        $out=Member::where('ekstrcurriculars_id','=',$id)->where('user_id','=',auth()->user()->id)->first();
+        $out->delete();
+        return redirect('/myekskul');
     }
 }

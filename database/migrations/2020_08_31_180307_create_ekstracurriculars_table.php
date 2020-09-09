@@ -18,6 +18,7 @@ class CreateEkstracurricularsTable extends Migration
             $table->string('ekstracurriculars_name');
             $table->biginteger('teacher_id');
             $table->string('description');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

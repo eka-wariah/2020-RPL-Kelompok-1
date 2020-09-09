@@ -1,5 +1,5 @@
 <head>
-	<title>Admin|Dashboard</title>
+	<title>Ekstrakulikuler</title>
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -10,7 +10,7 @@
 	<meta name="description" content="Phoenixcoded">
 	<meta name="keywords" content=", Flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
 	<meta name="author" content="Phoenixcoded">
-	<link rel="icon" href="{{ asset('frontend') }}/assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{{ asset('frontend') }}/assets/images/E.png" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/icon/themify-icons/themify-icons.css">

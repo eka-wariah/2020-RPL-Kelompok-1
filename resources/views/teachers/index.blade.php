@@ -15,7 +15,7 @@ Teachers Data
 	</div>
 	<div class="card-block">
 		<div class="dt-responsive table-responsive">
-			<a href="/teachers/create" class="btn btn-success">Create</a>
+			<a href="/teachers/create" class="btn btn-success"><i class="ion-plus-circled"></i></a>
 			<table id="dom-table" class="table table-striped table-bordered nowrap">
 				<thead>
 					<tr>
@@ -29,8 +29,9 @@ Teachers Data
 					<tr>
 						<td>{{$input->name}}</td>
 						<td>{{$input->email}}</td>
-						<td><a href="/teachers/{{$input->id}}/delete" class="btn btn-danger">Delete</a></td>
-						<td><a href="/teachers/{{$input->id}}/detail" class="btn btn-primary">Detail</a></td>
+						<td><a href="/teachers/{{$input->id}}/delete" class="btn btn-danger"><i class="ion-trash-a"></i></a>
+							<a href="/teachers/{{$input->id}}/detail" class="btn btn-primary"><i class="ion-eye"></i></a>
+						</td>
 					</tr>
 					@endforeach
 				</tbody>

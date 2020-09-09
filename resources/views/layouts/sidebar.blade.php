@@ -43,6 +43,7 @@
 										</ul>
 									</li>
 								</ul>
+								@if (auth()->user()->role_id==1)
 								<ul class="pcoded-item pcoded-left-item">
 									<li class="pcoded-hasmenu active pcoded-trigger">
 										<a href="javascript:void(0)">
@@ -75,7 +76,11 @@
 										
 										</ul>
 									</li>
-								</ul><ul class="pcoded-item pcoded-left-item">
+								</ul>
+								@endif
+
+								@if (auth()->user()->role_id==3)
+								<ul class="pcoded-item pcoded-left-item">
 									<li class=" ">
 										<a href="/choose" data-i18n="nav.form-masking.main">
 											<span class="pcoded-micon"><i class="ti-write"></i></span>
@@ -84,4 +89,27 @@
 										</a>
 									</li>
 								</ul>
+
+								<ul class="pcoded-item pcoded-left-item">
+									<li class=" ">
+										<a href="/myekskul" data-i18n="nav.form-masking.main">
+											<span class="pcoded-micon"><i class="ti-write"></i></span>
+											<span class="pcoded-mtext">My-Ekstracurricular</span>
+											<span class="pcoded-mcaret"></span>
+										</a>
+									</li>
+								</ul>
+								@endif
+						
+@if (auth()->user()->role_id==2)
+							<ul class="pcoded-item pcoded-left-item">
+									<li class=" ">
+										<a href="/students" data-i18n="nav.form-masking.main">
+											<span class="pcoded-micon"><i class="ti-write"></i></span>
+											<span class="pcoded-mtext">Data Students</span>
+											<span class="pcoded-mcaret"></span>
+										</a>
+									</li>
+								</ul>
 							</div>
+@endif

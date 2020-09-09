@@ -20,8 +20,8 @@
 							<a class="mobile-search morphsearch-search" href="#">
 								<i class="ti-search"></i>
 							</a>
-							<a href="index-2.html">
-								<img class="img-fluid" src="{{ asset('frontend') }}/assets/images/logo.png" alt="Theme-Logo" />
+							<a href="/dashboard">
+								<img class="img-fluid" src="{{ asset('frontend') }}/assets/images/B.png" height="1500px" width="180 px" alt="Theme-Logo" />
 							</a>
 							<a class="mobile-options">
 								<i class="ti-more"></i>
@@ -34,11 +34,6 @@
 										<div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
 									</li>
 									<li>
-										<a class="main-search morphsearch-search" href="#">
-											<i class="ti-search"></i>
-										</a>
-									</li>
-									<li>
 										<a href="#!" onclick="javascript:toggleFullScreen()">
 											<i class="ti-fullscreen"></i>
 										</a>
@@ -46,81 +41,7 @@
 									
 								</ul>
 								<ul class="nav-right">
-									<li class="header-notification lng-dropdown">
-										<a href="#" id="dropdown-active-item">
-											<i class="flag-icon flag-icon-gb m-r-5"></i> English
-										</a>
-										<ul class="show-notification">
-											<li>
-												<a href="#" data-lng="en">
-													<i class="flag-icon flag-icon-gb m-r-5"></i> English
-												</a>
-											</li>
-											<li>
-												<a href="#" data-lng="es">
-													<i class="flag-icon flag-icon-es m-r-5"></i> Spanish
-												</a>
-											</li>
-											<li>
-												<a href="#" data-lng="pt">
-													<i class="flag-icon flag-icon-pt m-r-5"></i> Portuguese
-												</a>
-											</li>
-											<li>
-												<a href="#" data-lng="fr">
-													<i class="flag-icon flag-icon-fr m-r-5"></i> French
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="header-notification">
-										<a href="#!">
-											<i class="ti-bell"></i>
-											<span class="badge">5</span>
-										</a>
-										<ul class="show-notification">
-											<li>
-												<h6>Notifications</h6>
-												<label class="label label-danger">New</label>
-											</li>
-											<li>
-												<div class="media">
-													<img class="d-flex align-self-center" src="{{ asset('frontend') }}/assets/images/user.png" alt="Generic placeholder image">
-													<div class="media-body">
-														<h5 class="notification-user">John Doe</h5>
-														<p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-														<span class="notification-time">30 minutes ago</span>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="media">
-													<img class="d-flex align-self-center" src="{{ asset('frontend') }}/assets/images/user.png" alt="Generic placeholder image">
-													<div class="media-body">
-														<h5 class="notification-user">Joseph William</h5>
-														<p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-														<span class="notification-time">30 minutes ago</span>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="media">
-													<img class="d-flex align-self-center" src="{{ asset('frontend') }}/assets/images/user.png" alt="Generic placeholder image">
-													<div class="media-body">
-														<h5 class="notification-user">Sara Soudein</h5>
-														<p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-														<span class="notification-time">30 minutes ago</span>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</li>
-									<li class="header-notification">
-										<a href="#!" class="displayChatbox">
-											<i class="ti-comments"></i>
-											<span class="badge">9</span>
-										</a>
-									</li>
+							
 									<li class="user-profile header-notification">
 										<a href="#!">
 											<img src="{{ asset('frontend') }}/assets/images/user.png" alt="User-Profile-Image">
@@ -128,6 +49,13 @@
 											<i class="ti-angle-down"></i>
 										</a>
 										<ul class="show-notification profile-notification">
+											<li>
+										
+												<a  href="/students/{{auth()->user()->id}}/detail">
+													
+													<i class="ti-layout-sidebar-left"></i> Detail
+												</a>
+											</li>
 											<li>
 												
 												<a  href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -140,6 +68,7 @@
 												</form>
 											</li>
 										</ul>
+
 									</li>
 								</ul>
 								<div id="morphsearch" class="morphsearch">
@@ -396,32 +325,30 @@
 											<div class="page-header-breadcrumb">
 												<ul class="breadcrumb-title">
 													<li class="breadcrumb-item">
-														<a href="index-2.html">
 															<i class="icofont icofont-home"></i>
-														</a>
-													</li>
-													<li class="breadcrumb-item"><a href="#!">Pages</a>
+															<li class="breadcrumb-item"><a href="/dashboard">Dashboard</a>
+														</li>
+													</a>
 												</li>
-												<li class="breadcrumb-item"><a href="#!">Dashboard</a>
-											</li>
-										</ul>
+												
+											</ul>
+										</div>
 									</div>
-								</div>
-								<div class="page-body">
-									<div class="row">
-										@yield('content')
+									<div class="page-body">
+										<div class="row">
+											@yield('content')
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div id="styleSelector">
+						<div id="styleSelector">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 </div>
 @include ('layouts.script')
